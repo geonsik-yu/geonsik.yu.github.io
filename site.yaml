@@ -6,7 +6,7 @@ publisher:
     github:
         type: hyde.ext.publishers.dvcs.Git
         path: ../geonsik-yu.github.io
-        url: git@github.com:geonsik-yu/geonsik-yu.github.com.git
+        url: git@github.com:geonsik-yu/geonsik-yu.github.io
 
 plugins:
     - hyde.ext.plugins.meta.MetaPlugin
