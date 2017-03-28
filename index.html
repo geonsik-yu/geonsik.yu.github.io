@@ -1,48 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
+	<title>Geonsik Yu</title>
+	<meta name="description" content="Personal Web Page">
+	<meta name="author" content="Geonsik Yu">
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Your page title here :)</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Scripts –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="css/github-prettify-theme.css">
+  <script src="js/site.js"></script>
   <link rel="icon" type="image/png" href="images/favicon.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+	function toggleDiv(divId) {
+		$("#"+divId).toggle();
+	}
+  </script>
 
+  <style>
+<style>
+body {margin: 0;}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #999;
+}
+
+ul.topnav li {float: left;     border-bottom-style: dotted;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+li{
+	text-indent: -1em;
+	padding-left: 1em;
+}
+ul{list-style-type: square; line-height: 125%; margin-top: 10px;}
+h3, h4 {
+  font-weight:600;
+}
+
+#title_name{
+	padding-top: 65px;
+
+}
+
+</style>
 </head>
 <body>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 4%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-        <p>Test</p>
-        <p>Test</p>
-      </div>
-    </div>
-  </div>
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<h3 id="title_name">Geonsik Yu</h3>
+  	<div class="row">
+  		<div class="column">
+  			<img src="./image.jpg" style="float:right; width:200px">
+				Hi I'm Geonsik Yu, a prospective industiral engineer / data scientist, interested in <b>datamining</b>, <b>network theory</b>, <b>social simulations</b> and <b>optimizations</b>. I'm currently working as a research assistant to Prof. Sunju Park in the SMAP(Scientific Modeling and Programming) Lab, School of Business, Yonsei University.
+				<br/><br/>
+				I received my master's degree in <b>Business Administration - Operations Research</b> from Yonsei University. My academic advisors are <a href="https://ysb.yonsei.ac.kr/faculty.asp?mid=m02&sOpt=A&uid=55">Sunju Park</a> and <a href="https://ysb.yonsei.ac.kr/faculty.asp?mid=m02&sOpt=A&uid=96">Yerim Chung</a>. I also received my bachelor's degree in <b>Computer Science</b> and <b>Business Administration</b> as double major from Yonsei University.
+				<br/><br/>
+				As a post-master research assistant, I'm closely working with Prof. Sunju Park on various projects related with optimization, social simulations and datamining. Details on works and related projects can be found in following sections.
+				<br/><br/>
+				Research Interests:
+				<ul>
+					<li>Datamining</li>
+					<li>Network Theory and Information Diffusion</li>
+					<li>Social Simulation</li>
+					<li>Optimization Problems</li>
+				</ul>
+				My Curriculum Vitae is Available <a href="./[CV]geonsik_yu.pdf" target="_blank">HERE</a> and other external links are as following: <a href="./[CV]geonsik_yu.pdf" target="_blank">[lab page]</a>, <a href="./[CV]geonsik_yu.pdf" target="_blank">[linked in]</a>
+  		</div>
+  	</div>
+
+<hr />
+
+<H4>Education</H4>
+<ul>
+	<li>SEP 2015 - AUG 2017. <b>M.S. in Business Administration (Operations Research).</b>
+	<br/>School of Business, Yonsei University, Seoul, South Korea.
+	<br/>- Thesis title: <i>Data-Driven Exploration that goes over the Walls of Knowledge Isolation in Undergraduate Education</i>.
+
+	<br/>- <a href="javascript:toggleDiv('list1');">Relevant Coursework</a>
+		<div id="list1" style="border-style:solid; border-width:1px; max-width:480px; padding-right:10px; display:none">
+			<ul>
+				<li>BIZ7048 Introduction to Optimization Theory (4.3)</li>
+				<li>IIE7529 Operations Research (4.3)</li>
+				<li>CSI6529 Linear Programming for Computer Scientists (4.3)</li>
+				<li>CSI6104 Combinatorial Optimization</li>
+				<li>GSI7375 Big Data Analysis and Application (4.3)</li>
+				<li>CSI7623 Social and Knowledge Graph Analysis (4.0)</li>
+				<li>ECO6305 Mathematical Statistics (4.0)</li>
+				<li>BIZ8009 Stochastic Model Analysis (4.3)</li>
+				<li>CSI6505 Multicore Programming (4.0)</li>
+			</ul>
+		</div>
+
+	<br/>- <a href="javascript:toggleDiv('list0');">Scholarships</a>
+		<div id="list0" style="border-style:solid; border-width:1px; max-width:480px; padding-right:10px; display:none">
+			<ul>
+				<li>National Humanities and Social Science Graduate Research Scholarship, Korea Student Aid Foundation (Fall 2016, Spring 2016)</li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+	</li>
+
+
+	<li>SEP 2012 - AUG 2015. <b>B.S. in Computer Science.</b>
+	<br/>College of Engineering, Yonsei University, Seoul, South Korea.
+	<br/>- Graduation work title: <i>Diffusion Time Minimization on Social Networks.</i> (with <a href="">Jeonghoon Kim</a> and <a href="">Sungchang Kim</a>)
+	<br/>- <a href="javascript:toggleDiv('list2');">Relevant Coursework</a>
+		<div id="list2" style="border-style:solid; border-width:1px; max-width:480px; padding-right:10px; display:none">
+			<ul>
+				<li>CSI4117 Data Mining (4.3)</li>
+				<li>CSI4108 Artificial Intelligence (4.0)</li>
+				<li>CSI2103 Data Structure (4.0)</li>
+				<li>STA2102 Linear Algebra (4.3)</li>
+			</ul>
+		</div>
+	</li>
+
+	<li>MAR 2008 - AUG 2015. <b>B.B.A.</b> 
+	<br/>School of Business, Yonsei University, Seoul, South Korea.</li>
+
+	<li>DEC 2012 - JUL 2013. <b>Apprentice Programmer.</b>
+	<br/>NHN(current NAVER) Software Membership Preparatory, Seoul, South Korea.
+	<br/>- Pilot project: Developed a web service with <a href="https://www.linkedin.com/in/jin-choeh/">Jin Choeh</a>, the content of which is horizontal timelines based blogging using J2EE frameworks.
+	</li>
+
+</ul>
+<hr />
+
+<H4>Research Papers</H4>
+<ul>
+	<!--
+	<li>
+		Geonsik Yu, Sunju Park and Yerim Chung. (2017).<br/>
+		Information Diffusion
+	</li>
+	<li>
+		Geonsik Yu, Sunju Park and Yerim Chung. (2017).<br/>
+		Ord DIv
+	</li>
+	<li>
+		Geonsik Yu, Sangtek Oh and Joonseo Nho. ().<br/>
+		Chicago Crime
+	</li>
+	<li>
+		Sangtek Oh and Geonsik Yu. ().<br/>
+		Cancer
+	</li>
+-->
+	<li>
+		Geonsik Yu, Taki Kim and Sunju Park. (2017).
+		<br/>Data-Driven Exploration Bridging Isolated Knolwedges in Undergraduate Education.
+		<br/>Available online at http://arxiv.org/abs/1111.6561?!@#?!@#?!@#. Interactive Examples.
+	</li>
+	<li>
+		Geonsik Yu, Yerim Chung and Sunju Park. (2016).
+		<br/>A Method to Induce Distribution Center Integration: Using Inverse Optimization.  
+		<br/>Korean Journal of Logistics, 24(3), 1-14. <a href="http://www.papersearch.net/thesis/article.asp?KEY=3476655" target="_blank">[link]</a>
+	</li>
+</ul>
+
+<hr/>
+
+<H4>Conference Presentations</H4>
+<ul>
+	<li>
+		"When the Diversified Organization Prevails: A Simulation Approach" Presented at INFORMS 2016 Annual Meeting, Nashvile, Tennessee, USA, November 13-16, 2016 (in English) <a href="./INFORMS1.pdf" target="_blank">[pdf]</a><a href="./INFORMS1.pdf" target="_blank">[cert]</a>
+	</li>
+	<li>
+		"Organizational Diversity Effect on Trend Chasing Environment: A Simulation Approach" Presented at ICEHM International Conference on Social Science, Humanities and Sports Science 2016, Bali, Indonesia, February 2-3, 2016 (in English) <a href="./INFORMS1.pdf" target="_blank">[cert]</a>
+	</li>
+	<li>
+		"Diffusion Time Minimization on Social Networks" Presented at Graduation Exhibition of Yonsei Computer Science, Yonsei University, Seoul, Korea, July 5, 2015 (in Korean) <a href="./GraduationWork.pdf" target="_blank">[pdf]</a> 
+	</li>
+</ul>
+
+<hr />
+<!-- 
+<H4>Patents</H4>
+<hr />
+-->
+<H4>Research Experience</H4>
+<ul>
+	<li>
+		Jul 2014 - Present. Research Assistant to Prof. Sunju Park, Scientific Modeling and Programming Laboratory (SMAP Lab), Yonsei University, Seoul, South Korea.
+		<br/> - Conducted individual researches as part of the project.
+		<br/> - Presented research findings at academic conferences.
+		<br/> - Attended Lab Meeting.
+	</li>
+	<li>
+		Jul 2014 - Aug 2017. Research Assistant, Social Study Korea(SSK) - Connected Society and Shared Value. <a href="http://ssk-connectedsociety.or.kr/">[link]</a>
+		<br/> - Performed web crawling and news article analysis based on textmining.
+		<br/> - Conducted individual researches as part of the project.
+	</li>
+</ul>
+
+<hr/>
+
+<H4>Teaching Experience</H4>
+<ul>
+	<li>
+		Mar 2017 - Jun 2017. Teaching Assistant for Prof. Sunju Park, Yonsei University.
+		<br> - Management Science (Undergraduate, BIZ2122)
+	</li>	
+	<li>
+		Mar 2017 - Jun 2017. Teaching Assistant for Prof. Kyungsun Doh, Yonsei University.
+		<br> - Yonsei RC 101 (Undergraduate)
+	</li>	
+	<li>
+		Sep 2016 - Dec 2016. Teaching Assistant for Prof. Sunju Park, Yonsei University. 
+		<br> - Management Science (Undergraduate, BIZ2122)
+	</li>	
+	<li>
+		Mar 2016 - Jun 2016. Teaching Assistant for Prof. Kyungsun Doh, Yonsei University.
+		<br> - Yonsei RC 101 (Undergraduate)
+	</li>	
+	<li>
+		Sep 2015 - Dec 2015. Teaching Assistant for Prof. Sunju Park, Yonsei University. 
+		<br> - Business Simulation (Undergraduate, BIZ3104)
+	</li>	
+	<li>
+		Feb 2014 - Jun 2014. Chief Residential Assistant of Residential College, Yonsei University.
+		<br/> - Managed 15 RAs and 434 Students of LeeWonChul House.
+	</li>	
+	<li>
+		Jan 2014. Operating Assistant of Yonsei Jr. Career Camp for Highschool Students, Yonsei University.
+	</li>	
+	<li>
+		Jul 2013. Teaching Assistant of Yonsei Jr. Career Camp for Highschool Students, Yonsei University.
+	</li>	
+	<li>
+		Mar 2012 - Jun 2012. Assistant for Prof. Kyungsun Doh, Yonsei University.
+	</li>	
+	<li>
+		Jan 2012 - Feb 2012. Teaching Assistant of Global Freshman Seminar, Yonei University.
+	</li>	
+
+</ul>
+ 
+<hr />
+	<!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<H4>Other Activities</H4>
+<ul>
+	<li>
+		Feb 2014 - Jun 2014. Acting Member, YBigta - Yonsei Big Data Society, Yonsei University.
+		<br/> - Attended weekly seminars on textmining, data visualization and machine learning.
+		<br/> - Participated in the project: <i>Crime Prediction for Chicago</i>. <a href="./INFORMS1.pdf" target="_blank">[pdf]</a>
+	</li>
+	<li>
+		Nov 2009 - Aug 2011. Unit Supply Sergeant, ROK Army.
+		<br/> - Served and discharged from ROK Army upon completing military service.
+	</li>
+	<li>
+		Sep 2008 - Jun 2009. Acting Member, JSC - Junior Scholar Club, Yonsei University.
+		<br/> - Attended weekly seminars on Korean modern history and various humanistic issues.
+	</li>
+</ul>
+<hr/>
+	<!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<H4>Technical Skills</H4>
+<ul>
+	<li>Programming Languages: Python, C, C++, Java</li>
+	<li>Optimization: IBM ILOG Cplex Concert Technologies, Cplex Python API</li>
+	<li>Scientific and Statistical Tools: R, Matlab, Python Sklearn</li>
+	<li>Database: MSSQL, MySQL</li>
+	<li>Web Programming: Extensive experience with Java Servlet, HTML, CSS, Javascript(Jquery, D3.js) and Spring Framework</li>
+</ul>
+<hr />
+
+	</div>
+
+	<!-- End Document –––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
