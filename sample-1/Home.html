@@ -1,9 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-
+<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
@@ -13,6 +11,13 @@
 
 	<style>
 		/* Minor Deco CSS */	
+		@media (min-width: 767px){
+			#LogoSpace { margin:auto;width: 50%;}
+		}
+		@media (max-width: 767px){
+			#LogoSpace { margin:auto;width: 80%;}
+		}
+		
 		li.nav-item.right-deco {
 			border-color: black ;
 			border-right-style:dotted ;
@@ -26,13 +31,13 @@
 			margin-right: 0 !important;
 			width: 100% !important;
 		}
+
 		#menu-toggle {
 			margin-right: 5px !important;
 			margin-top: 5px !important;
 		}
 
-
-		#myHornav {
+		.border-top-grey {
 			border-top-style: solid !important;
 			border-top-width: 1px !important;
 			border-color: grey !important;			
@@ -40,7 +45,11 @@
 			border-color: #007bff !important;
 			*/
 		}
-
+		
+		@media (min-width: 767px){
+			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
+		}
+		
 		/* Side Navigation Drawer CSS */
 		.sidenav {
 			height: 100%;
@@ -136,13 +145,11 @@
 	</style>
 
 
-	<!-- Bootstrap core JavaScript -->
+	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
-
-
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "250px";
@@ -180,24 +187,22 @@
 			//x.eq(n).css('position','relative')
 			//dots[n].className += " w3-white";
 		}
-
 	</script>
 
-		<!-- Bootstrap Frame CSS -->
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rozha One">
-		
-		<link href="css/stylish-portfolio.css" rel="stylesheet">
-	</head>
+	<!-- Bootstrap Frame CSS and Other Styles -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rozha One">
+	<link href="css/stylish-portfolio.css" rel="stylesheet">
+</head>
 
 	<body style="height: 150px;">
 	<!-- Header -->
 	<header class="header" id="top">
 		<div style="vertical-align:middle; display:table-cell;">
-			<div style="margin:auto; width: 50%;">
+			<div id="LogoSpace">
 				<h2 style="font-family:'Oswald';">CENTER for <br/>DIGITAL SOCIETY</h2>
 				<img src="./img/YonseiLogo1.jpg" width="25px" style="margin-right:1px">
 				<img src="./img/YonseiLogo2.jpg" width="150px">
@@ -220,7 +225,7 @@
 	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
 
 	<!-- Navigation: Horizontal -->
-	<nav id="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4">
+	<nav class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey-collapse">
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
@@ -246,7 +251,7 @@
 
 
 	<!-- Section: Image Slider -->	
-	<section class="imageSlider">
+	<section class="imageSlider border-top-grey">
 		<div class="container nopadding" style="width:100%;height:0;">
 			<div class="row nopadding">
 				<div class="nopadding">
@@ -483,7 +488,7 @@
 				</li>
 			</ul>
 			<hr class="small">
-			<p class="text-muted">Copyright &copy; Your Website 2017</p>
+			<p class="text-muted">Copyright &copy; Center for Digital Society, Yonsei School of Business 2017</p>
 			</div>
 		</div>
 		</div>
