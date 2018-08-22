@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<meta charset=utf-8 />
+	<title>Sample Geodata Visualization using Leaflet</title>
+
+	<!-- leaflet CDNs -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+
+	<!-- leaflet-fullscreen CDNs -->
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet'/>
+
+	<!-- leaflet markercluster CDNs -->
+	<script src='https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster-src.js'></script>
+	<link href='https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css' rel='stylesheet'/>
+	<link href='https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css' rel='stylesheet'/>
+
+	<!-- Jquery CDNs -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body style="height:100vh">
+	<div id='map' style="width:100%; height:100vh"></div>
+
+<script>
+    var x_min, x_max, y_min, y_max;
+	$.getJSON( "https://raw.githubusercontent.com/CityOfPhiladelphia/phl-open-geodata/master/bicycle_thefts/bicycle_thefts_Part1.geojson", function( data ) {
+
+		x_min = data.features[0].geometry.coordinates[1]
+		x_max = data.features[0].geometry.coordinates[1]
+		y_min = data.features[0].geometry.coordinates[0]
+		y_max = data.features[0].geometry.coordinates[0]
+		for (i = 1; i < data.features.length; i++) { 
+			x_new = data.features[i].geometry.coordinates[1]
+			y_new = data.features[i].geometry.coordinates[0]
+			if ( x_new > x_max ) x_max = x_new
+			else if ( x_new < x_min ) x_min = x_new  
+			if ( y_new > y_max ) y_max = y_new
+			else if ( y_new < y_min ) y_min = y_new  
+		}
+
+		var map = L.map('map', { fullscreenControl: { pseudoFullscreen: false }} )
+					.setView(L.latLng((x_min+x_max)/2, (y_min+y_max)/2), 12);
+
+	    var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+	        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+	    }).addTo(map);
+
+		var markers = L.markerClusterGroup({ chunkedLoading: true });		
+		for (i = 0; i < data.features.length; i++) {
+			x_new = data.features[i].geometry.coordinates[1]
+			y_new = data.features[i].geometry.coordinates[0]
+			stolen = data.features[i].properties.STOLEN_VAL
+
+			var marker = L.marker(L.latLng(x_new, y_new));
+			marker.bindPopup(JSON.stringify(stolen))
+			markers.addLayer(marker);
+		}
+		map.addLayer(markers);
+	})
+</script>
+</body>
+</html>
+
