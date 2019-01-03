@@ -24,18 +24,25 @@
 </head>
 
 <body>
-<div class = "script_box">
-	<h1>Toy Diffusion Model</h1>
-	<button onclick="runSimulation()">Start</button>
+<div class="w3-sidebar w3-bar-block" style="width:25%; padding-left:10pt"> 	
+	<h2>Toy independent cascasde model</h2>
+	<button onclick="runSimulation()" id="processButton">Start</button>
 	<form id="simulForm" action="/action_page.php">
-		# of seeds: <input type="value" name="Nseed" style="width:30px" value=10><br>
-		Diffusion rate: <input type="value" name="Drate" style="width:30px" value=0.1><br><br>
+		# of seeds := <input type="value" name="Nseed" style="width:30px" value=10><br>
+		Diffusion rate := <input type="value" name="Drate" style="width:30px" value=0.5><br><br>
+
+		<div id="time">Time := 0, # of infected := 0</div>
 	</form> 
 </div> 
 
 
 </body>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+
 <script>
 	var w = window.innerWidth;
 	var h = window.innerHeight;
@@ -69,9 +76,11 @@
 	var g = svg.append("g");
 	svg.style("cursor","move");
 
+	var node;
+	var linkedByIndex;
 	d3.json("https://raw.githubusercontent.com/geonsik-yu/Projects-and-Practices/master/3.%20D3.js%20materials/Yonsei-Network/Data_SyllabiNet/data_typeA15.json", function(error, dataSet) {
 		graph = parse_data(dataSet)
-		var linkedByIndex = {};
+		linkedByIndex = {};
 		graph.links.forEach( function(edge){ linkedByIndex[edge.source + "," + edge.target] = true;} );
 
 		var force = d3.layout.force()
@@ -89,10 +98,11 @@
 					.style("stroke-width", nominal_stroke)
 					.style("stroke", "#888")
 
-		var node = g.selectAll(".node")
+		node = g.selectAll(".node")
 					.data(graph.nodes)
 					.enter().append("g")
 					.attr("class", "node")
+					.attr("fill", "blue")
 					.call(force.drag)
 	
 		node.on("dblclick.zoom", function(d) { d3.event.stopPropagation();
@@ -112,6 +122,7 @@
 						 .attr("d", d3.svg.symbol()
 									  .size(function(d) { return Math.PI*Math.pow(size(d.size)||nominal_base_node_size,2); })
 									  .type(function(d) { return d.type; }))
+						 .attr('id', function(d) { return(d.id) })
 						 .style(tocolor, function(d) { 
 								return default_node_color; })
 						 .style("stroke-width", nominal_stroke)
@@ -157,7 +168,6 @@
 			highlight_node = d;
 			if (highlight_color!="white"){
 				circle.style(towhite, function(o) { return isConnected(linkedByIndex, d, o) ? highlight_color : "white";});
-				text.style("font-weight", function(o) { return isConnected(linkedByIndex, d, o) ? "bold" : "normal";});
             	link.style("stroke", function(o) { return o.source.index == d.index || o.target.index == d.index ? highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);});
             }
         }
@@ -288,12 +298,52 @@
 
 
 	// Simulation Part
-	function runSimulation() {
-		var x = document.getElementById("simulForm");
-		Nseed = x.elements[0].value
-		alert(graph.nodes.length)
+	var currentTime = 0
+	var infected = []
+	var justInfected = []
+	var infectionRate = 0
+	var numInfected = 0
+	function runSimulation(g) {
+		//console.log(linkedByIndex)
+
+		if( currentTime == 0){
+			var x = document.getElementById("simulForm");
+			Nseed = x.elements[0].value
+			seeds = _.sample( _.range(0,graph.nodes.length), Nseed)
+			infectionRate = x.elements[1].value
+			justInfected = justInfected.concat(seeds)
+			infected = infected.concat(seeds)
+
+			for(i = 0; i < Nseed; i++){
+				console.log(graph.nodes[seeds[i]].id)
+				console.log(graph.nodes[seeds[i]])
+				d3.select("#" + graph.nodes[seeds[i]].id).style("fill", "red")
+			}
+			document.getElementById("processButton").innerHTML = "Next"
+			currentTime++;
+			document.getElementById("time").innerHTML += "<br/>Time := " + currentTime +", # of infected := " + infected.length;			
+		}		
+		else{
+			var newlyInfected = []
+			//console.log(justInfected)
+			for(i = 0; i < justInfected.length; i++){
+				for(j = 0; j < graph.nodes.length; j++){
+					//console.log(linkedByIndex[justInfected[i] + "," + j])
+					if(linkedByIndex[justInfected[i] + "," + j]==true && !infected.includes(j)
+						&& Math.random() < infectionRate){
+						infected.push(j)
+						newlyInfected.push(j)
+						d3.select("#" + graph.nodes[j].id).style("fill", "red")
+					}				
+				}
+			}
+			justInfected = newlyInfected
+			currentTime++;
+			document.getElementById("time").innerHTML += "<br/>Time := " + currentTime +", # of infected := " + infected.length;
+		}
 	}
 
+	
 
 </script>
 
